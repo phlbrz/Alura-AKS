@@ -1,15 +1,20 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: aplicacao-deployment
 spec:
+  selector:
+    matchLabels:
+      name: aplicacao-pod
   template:
     metadata:
       labels:
-       name: aplicacao-pod
+        name: aplicacao-pod
     spec:
+      imagePullSecrets:
+        - name: alurasportsfeliperegistry.secret
       containers:
         - name: container-aplicacao-loja
-          image: rafanercessian/aplicacao-loja:v1
+          image: alurasportsfeliperegistry.azurecr.io/loja/aplicacao-loja:v1
           ports:
             - containerPort: 80

@@ -5,6 +5,6 @@ metadata:
 spec:
   containers:
     - name: container-aplicacao-loja
-      image: rafanercessian/aplicacao-loja:v1
+      image: loja/aplicacao-loja:v1
       ports:
         - containerPort: 80
